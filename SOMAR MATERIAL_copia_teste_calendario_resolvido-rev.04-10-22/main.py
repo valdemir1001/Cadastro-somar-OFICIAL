@@ -8,7 +8,7 @@ from openpyxl.workbook import Workbook
 from openpyxl import *
 from Listas_geral import *
 import base64
-
+import customtkinter
 
 
 root = Tk()
@@ -94,44 +94,116 @@ class Application(Funcionalidades,Validadores):
 # BOTÔES_________________________
 
 # Botão CADASTRAR
-        self.bt_novo = Button(self.aba1,text='Cadastrar',font=(self.root.font,8, 'bold'),bd=3,bg='#dce4f7',
-                              fg=self.root.font_cor,
-                              activebackground='green',
-                              activeforeground='white',
-                              command=self.add_valores)
+        self.bt_novo = customtkinter.CTkButton(
+                                self.aba1,  
+                                text='cadastrar'.upper(), 
+                                text_font=('Arial 7 bold'),
+                                width=900, 
+                                compound=BOTTOM, 
+                                relief=RAISED, 
+                                text_color="white",
+                                hover= True,
+                                hover_color= "blue",
+                                border_width=2,
+                                corner_radius=8,
+                                border_color= "#0e002f",
+                                fg_color= "#092b5a",
+                                command=self.add_valores)
         self.bt_novo.place(relx=0.22, rely=0.18, relwidth=0.09, relheight=0.10)
 
 # Botão ALTERAR
-        self.bt_alterar = Button(self.aba1, text='Alterar',font=(self.root.font,8,'bold'), bd=3, bg='#dce4f7',
-                                 fg=self.root.font_cor,
-                                 activebackground='#079ea6',
-                                 activeforeground='white',
-                                 command=self.alter_valores)
+        self.bt_alterar = customtkinter.CTkButton(
+                                self.aba1, 
+                                text='Alterar'.upper(),
+                                text_font=('Arial 7 bold'),
+                                width=900, 
+                                compound=BOTTOM, 
+                                relief=RAISED, 
+                                text_color="white",
+                                hover= True,
+                                hover_color= "blue",
+                                border_width=2,
+                                corner_radius=8,
+                                border_color= "#0e002f",
+                                fg_color= "#092b5a",
+                                command=self.alter_valores)
         self.bt_alterar.place(relx=0.32, rely=0.18, relwidth=0.09, relheight=0.10)
 # Botao LIMPAR
-        self.bt_limpar = Button(self.aba1, text='Limpar', font=(self.root.font,8,'bold'), bd=3, bg='#dce4f7',
-                                fg=self.root.font_cor,
-                                activebackground='#ffbc11',
-                                activeforeground='white',
+        self.bt_limpar = customtkinter.CTkButton(
+                                self.aba1, 
+                                text='Limpar'.upper(), 
+                                text_font=('Arial 7 bold'),
+                                width=900, 
+                                compound=BOTTOM, 
+                                relief=RAISED, 
+                                text_color="white",
+                                hover= True,
+                                hover_color= "blue",
+                                border_width=2,
+                                corner_radius=8,
+                                border_color= "#0e002f",
+                                fg_color= "#092b5a",
                                 command=self.limpa_tela)
         self.bt_limpar.place(relx=0.42, rely=0.18, relwidth=0.09, relheight=0.10)
 
 # Botão Excluir
-        self.bt_apagar = Button(self.aba1, text='Excluir',font=(self.root.font,8,'bold'), bd=3, bg='#dce4f7',activebackground='#e32f21', activeforeground='white',fg=self.root.font_cor,command=self.deleta_valores)
+        self.bt_apagar =customtkinter.CTkButton(
+                                self.aba1, 
+                                text='Excluir'.upper(),
+                                text_font=('Arial 7 bold'),
+                                width=900, 
+                                compound=BOTTOM, 
+                                relief=RAISED, 
+                                text_color="white",
+                                hover= True,
+                                hover_color= "blue",
+                                border_width=2,
+                                corner_radius=8,
+                                border_color= "#0e002f",
+                                fg_color= "#092b5a",
+                                command=self.deleta_valores)
         self.bt_apagar.place(relx=0.52, rely=0.18, relwidth=0.09, relheight=0.10)
 # ID_____________
 
 # Canvas do ID
-        self.canvas_bt = Canvas(self.aba1,bd=1,bg='#2e97b7',highlightbackground='#001f36',highlightthickness=2)
+        self.canvas_bt = customtkinter.CTkFrame(
+                                self.aba1,  
+                                width=200,
+                                height=200,
+                                corner_radius=10,
+                                border_width=2,
+                                border_color= "#0e002f",
+                                fg_color='#2e97b7'
+                                )
         self.canvas_bt.place(relx=0.02,rely=0.15,relwidth=0.10,relheight=0.15)
 # LABEL E ENTRY do ID
         self.lb_id = Label(self.aba1, text='ID', font=(self.root.font,11,'bold'), bg='#2e97b7', fg=self.root.font_cor)
         self.lb_id.place(relx=0.03, rely=0.17,relheight=0.04)
-        self.id_entry = Entry(self.aba1, bg='white',font=self.root.font,validate='key',validatecommand=self.vcmd2)
-        self.id_entry.place(relx=0.03, rely=0.22, relwidth=0.08, height=20)
+        
+        self.id_entry = customtkinter.CTkEntry(
+                                self.aba1, 
+                                width=120,
+                                height=25,
+                                border_width=2,
+                                corner_radius=8,
+                                border_color='black',
+                                bg_color='#2e97b7',
+                                text_font=self.root.font,
+                                validate='key',
+                                validatecommand=self.vcmd2
+                                )
+        self.id_entry.place(relx=0.03, rely=0.22, relwidth=0.08, height=21)
 
 # Canvas das Labels e Entrys
-        self.canvas_bt = Canvas(self.aba1,bd=3,bg='#2e97b7',highlightbackground='#001f36',highlightthickness=2)
+        self.canvas_bt = customtkinter.CTkFrame(
+                                self.aba1,        
+                                width=200,
+                                height=200,
+                                corner_radius=10,
+                                border_width=2,
+                                border_color= "#0e002f",
+                                fg_color='#2e97b7'
+                                )
         self.canvas_bt.place(relx=0.02,rely=0.31,relwidth=0.59,relheight=0.66)
         
 # Label e Entry DATA
@@ -172,22 +244,79 @@ class Application(Funcionalidades,Validadores):
 
 
 # Botao Buscar por MATERIAL
-        self.bt_buscar = Button(self.aba1, text='Buscar por MATERIAL ', font=(self.root.font,7,'bold'), bd=3, bg='#dce4f7', activebackground='#6b8f0b', activeforeground='white',fg=self.root.font_cor,command=self.busca_mat)
-        self.bt_buscar.place(relx=0.44, rely=0.52, relwidth=0.15, relheight=0.10)
+        self.bt_buscar = customtkinter.CTkButton(
+                                self.aba1, 
+                                text='Buscar por MATERIAL ', 
+                                text_font=(self.root.font,9,'bold'), 
+                                width=900, 
+                                compound=BOTTOM, 
+                                relief=RAISED, 
+                                text_color="white",
+                                hover= True,
+                                hover_color= "#00a9d4",
+                                border_width=2,
+                                corner_radius=8,
+                                border_color= "lightblue",
+                                fg_color= "#1c3166",
+                                bg_color='#2e97b7',
+                                command=self.busca_mat)
+        self.bt_buscar.place(relx=0.44, rely=0.68, relwidth=0.15, relheight=0.10)
 
 # Botão Buscar por OS
-        self.bt_busca_os = Button(self.aba1, text='Buscar por OS', font=(self.root.font,7,'bold' ),bd=3, bg='#dce4f7',activebackground='#660860', activeforeground='white',fg=self.root.font_cor,command=self.busca_os)
-        self.bt_busca_os.place(relx=0.44, rely=0.72, relwidth=0.15, relheight=0.10)
+        self.bt_busca_os = customtkinter.CTkButton(
+                                self.aba1, 
+                                text='Buscar por OS', 
+                                text_font=(self.root.font,9,'bold'), 
+                                width=900, 
+                                compound=BOTTOM, 
+                                relief=RAISED, 
+                                text_color="white",
+                                hover= True,
+                                hover_color= "#00a9d4",
+                                border_width=2,
+                                corner_radius=8,
+                                border_color= "lightblue",
+                                fg_color= "#1c3166",
+                                bg_color='#2e97b7',
+                                command=self.busca_os)
+        self.bt_busca_os.place(relx=0.44, rely=0.82, relwidth=0.15, relheight=0.10)
 
 # Botão Busca Data
-        self.calData = Button(self.aba1, text='Buscar por Data', font=(self.root.font, 7, 'bold'), bd=3, bg='#dce4f7',
-                              activebackground='#e30075', activeforeground='white', fg=self.root.font_cor
-                              , command=self.busca_data)
-        self.calData.place(relx=0.44, rely=0.34, relwidth=0.15, relheight=0.09)
-        self.bt_chama_calendario = Button(self.aba1, text='CALENDÁRIO', font=(self.root.font, 7, 'bold'), bd=3,
-                                          bg='#dce4f7', activebackground='#005bc5', activeforeground='white',
-                                          fg=self.root.font_cor, command=self.calendario)
-        self.bt_chama_calendario.place(relx=0.25, rely=0.34, relwidth=0.10, relheight=0.09)
+        self.calData = customtkinter.CTkButton(
+                                self.aba1, 
+                                text='Buscar por Data', 
+                                text_font=(self.root.font,9,'bold'), 
+                                width=900, 
+                                compound=BOTTOM, 
+                                relief=RAISED, 
+                                text_color="white",
+                                hover= True,
+                                hover_color= "#00a9d4",
+                                border_width=2,
+                                corner_radius=8,
+                                border_color= "lightblue",
+                                fg_color= "#1c3166",
+                                bg_color='#2e97b7',
+                                command=self.busca_data)
+        self.calData.place(relx=0.44, rely=0.55, relwidth=0.15, relheight=0.09)
+        
+        self.bt_chama_calendario = customtkinter.CTkButton(
+                                self.aba1, 
+                                text='CALENDÁRIO', 
+                                text_font=(self.root.font,9,'bold'), 
+                                width=900, 
+                                compound=BOTTOM, 
+                                relief=RAISED, 
+                                text_color="white",
+                                hover= True,
+                                hover_color= "#00a9d4",
+                                border_width=2,
+                                corner_radius=8,
+                                border_color= "lightblue",
+                                fg_color= "#101652",
+                                bg_color='#2e97b7', 
+                                command=self.calendario)
+        self.bt_chama_calendario.place(relx=0.44, rely=0.34, relwidth=0.15, relheight=0.09)
 
 
         self.python_image2 = PhotoImage(data=base64.b64decode(self.somar))
@@ -201,10 +330,23 @@ class Application(Funcionalidades,Validadores):
         self.calendario1 = Calendar(self.aba1, fg='gray75', bg='blue', font=('Verdana', '9', 'bold'),
                                     locale='pt_br')
         self.calendario1.place(relx=0.62, rely=0.31, relwidth=0.37, relheight=0.65)
-        self.calData = Button(self.aba1, text='Inserir Data', font=(self.root.font, '8', 'bold'), bd=3,
-                              bg='#dce4f7',
-                              activebackground='#e30075', activeforeground='white', fg=self.root.font_cor
-                              , command=self.print_cal)
+        
+        self.calData = customtkinter.CTkButton(
+                                self.aba1, 
+                                text='Inserir Data', 
+                                text_font=(self.root.font,9,'bold'), 
+                                width=900, 
+                                compound=BOTTOM, 
+                                relief=RAISED, 
+                                text_color="white",
+                                hover= True,
+                                hover_color= "#00a9d4",
+                                border_width=2,
+                                corner_radius=8,
+                                border_color= "#0e002f",
+                                fg_color= "#101652",
+                                bg_color='lightblue', 
+                                command=self.print_cal)
         self.calData.place(relx=0.62, rely=0.18, relwidth=0.10, relheight=0.10)
 
 
